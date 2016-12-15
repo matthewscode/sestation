@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>SE STATION</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:500,800' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.js"></script>
+    <!--<script src="resources/angular/Chart.min.js"></script>-->
+    <!--<script src="resources/angular/angular-chart.min.js"></script>-->
+    <script src="resources/app/ses-app.js"></script>
+    <link rel="stylesheet" type="text/css" href="resources/css/style.css">
+</head>
+<body data-ng-app="sesApp">
+<div ng-controller="mainCtrl">
+<div class="nav-top-container">
+    <a href="#/create">Create</a>
+</div>
+<div class="bottom-container">
+    <div ng-view>
+
+    </div>
+</div>
+</div>
+</body>
+</html>

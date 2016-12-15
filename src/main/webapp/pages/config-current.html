@@ -1,0 +1,123 @@
+<div class="result-bar-container" ng-show="configLoaded">
+    <div class="rb-config-box">
+        {{ configName }} <img src="resources/img/balls.svg" style="float: right; margin-right: 5px"/>
+    </div>
+    <div class="rb-issue-box">
+        Issue #
+    </div>
+    <div class="rb-result-box">
+        <div class="rb-result-entry-box">
+            <div class="rb-left-box">Total Words</div>
+            <div class="rb-right-box"> 0</div>
+        </div>
+        <div class="rb-result-entry-box">
+            <div class="rb-left-box">Unique Words</div>
+            <div class="rb-right-box"> 0</div>
+        </div>
+        <div class="rb-result-entry-box">
+            <div class="rb-left-box">Unique Meta</div>
+            <div class="rb-right-box"> 0</div>
+        </div>
+        <div class="rb-result-entry-box">
+            <div class="rb-left-box">Total Pages</div>
+            <div class="rb-right-box"> 0</div>
+        </div>
+        <div class="rb-result-entry-box">
+            <div class="rb-left-box">Total Images</div>
+            <div class="rb-right-box"> 0</div>
+        </div>
+    </div>
+</div>
+<div class="content-container" ng-show="configLoaded">
+    <div class="result-menu">
+        <div class="result-menu-entry selected">
+            Summary
+        </div>
+        <div class="result-menu-entry">
+            Pages
+        </div>
+        <div class="result-menu-entry">
+            Segments
+        </div>
+        <div class="result-menu-entry">
+            Directory
+        </div>
+        <div class="result-menu-entry">
+            Images
+        </div>
+        <div class="result-menu-entry">
+            Files
+        </div>
+    </div>
+    <div class="result-main-box">
+        <div class="sum-left">
+            <div class="sum-config-box">
+                <div class="sum-icon-box">
+                    <i class="material-icons sum-icon" style="color: #1e5b85">description</i><br/>
+                    Config
+                </div>
+                <div class="content-box">
+
+                    <div class="kv-box">
+                        <div class="key-box">Domain</div>
+                        <div class="value-box">www.example.com</div>
+                    </div>
+                    <div class="kv-box">
+                        <div class="key-box">Threads</div>
+                        <div class="value-box">3</div>
+                    </div>
+                    <div class="kv-box">
+                        <div class="key-box">Delay</div>
+                        <div class="value-box">0</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sum-inc-box">
+                <div class="sum-icon-box">
+                    <i class="material-icons sum-icon" style="color: #2ec866">thumb_up</i><br/>
+                    Include
+                </div>
+                <div class="content-box">
+                    /directory<br/>
+                    /en
+                </div>
+            </div>
+            <div class="sum-exc-box">
+                <div class="sum-icon-box">
+                    <i class="material-icons sum-icon" style="color: #dd8877">thumb_down</i><br/>
+                    Exclude
+                </div>
+                <div class="content-box">
+                    /directory<br/>
+                    /en
+                </div>
+            </div>
+            <div class="sum-seed-box">
+                <div class="sum-icon-box">
+                    <i class="material-icons sum-icon">playlist_play</i><br/>
+                    Seed List
+                </div>
+                <div class="content-box">
+                    /directory<br/>
+                    /en
+                </div>
+            </div>
+        </div>
+        <div class="sum-right">
+            <div class="sum-ppm-box">
+
+            </div>
+            <div class="sum-running-box">
+
+            </div>
+            <div class="sum-dir-box">
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- when no config is loaded-->
+<div ng-show="!configLoaded">
+    Please Select a config
+</div>

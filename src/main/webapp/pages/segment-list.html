@@ -1,0 +1,15 @@
+<div class="content-container" data-ng-init="init()">
+    <div class="result-main-box">
+        <div class="segment-list-entry-box" ng-repeat="segment in segmentList">
+            <div class="segment-list-entry-index">
+                {{ $index }}
+            </div>
+            <div class="segment-list-entry-segment">
+                {{ segment.segmentText }}
+            </div>
+            <div class="segment-list-entry-words">
+                {{ segment.wordCount }}
+            </div>
+        </div>
+    </div>
+</div>

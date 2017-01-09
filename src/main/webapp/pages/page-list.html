@@ -1,0 +1,15 @@
+<div class="content-container" data-ng-init="init()">
+    <div class="result-main-box">
+        <div class="page-list-entry-box" ng-repeat="page in pageList">
+            <div class="page-list-entry-index">
+                {{ $index }}
+            </div>
+            <div class="page-list-entry-url">
+                {{ page.url }}
+            </div>
+            <div class="page-list-entry-words">
+                {{ page.wordCount }}
+            </div>
+        </div>
+    </div>
+</div>

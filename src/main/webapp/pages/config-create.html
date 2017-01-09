@@ -1,6 +1,29 @@
-<div class="create-config" data-ng-int="init()">
-    <div class="create-details">
-        <input type="text" class="input-def" placeholder="Name"/>
-        <input type="text" class="input-def" placeholder="Issue #"/>
+
+<div class="content-container">
+    <div class="result-main-box">
+        <div class="create-config" data-ng-int="init()">
+            <div class="create-details">
+                <input type="text" class="input-def" placeholder="Name" ng-model="newConfig.name"/>
+                <input type="text" class="input-def" placeholder="Issue #" ng-model="newConfig.issueNum"/>
+            </div>
+            <div class="create-details">
+                properties go here
+            </div>
+            <div class="create-details">
+                <textarea placeholder="Domain List" class="config-textarea" ng-model="domainList"></textarea>
+            </div>
+            <div class="create-patterns">
+                <textarea placeholder="Seed List" class="config-textarea" ng-model="seedList"></textarea>
+            </div>
+            <div class="create-patterns">
+                <textarea placeholder="Include List" class="config-textarea" ng-model="includeList"></textarea>
+            </div>
+            <div class="create-patterns">
+                <textarea placeholder="Exclude List" class="config-textarea" ng-model="excludeList"></textarea>
+            </div>
+            <div class="create-button" ng-click="createScope()">
+                Create
+            </div>
+        </div>
     </div>
 </div>

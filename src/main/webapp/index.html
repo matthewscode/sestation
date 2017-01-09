@@ -13,12 +13,70 @@
 <body data-ng-app="sesApp">
 <div ng-controller="mainCtrl">
 <div class="nav-top-container">
-    <a href="#/create">Create</a>
+    <a href="#/scope/create">Create</a>
+    <a href="#/scope/list">List</a>
 </div>
 <div class="bottom-container">
+    <div class="result-bar-container" ng-show="configLoaded" data-ng-init="init()">
+        <div class="rb-config-box">
+            <div class="config-name">{{ currentConfig.name }}</div>
+            <div class="config-start" ng-show="currentResult.running" ng-click="stop()">
+                <img src="resources/img/balls.svg" style="float: right; margin-right: 5px"/>
+            </div>
+            <div class="config-start" ng-hide="currentResult.running" ng-click="start()">
+                <i class="material-icons start-icon" style="color: #2ec866">play_arrow</i>
+            </div>
+        </div>
+        <div class="rb-issue-box">
+            Issue # {{ currentConfig.issueNum }}
+        </div>
+        <div class="rb-result-box">
+            <div class="rb-result-entry-box">
+                <div class="rb-left-box">Total Words</div>
+                <div class="rb-right-box"> {{ currentResult.uniqueWordCount }} </div>
+            </div>
+            <div class="rb-result-entry-box">
+                <div class="rb-left-box">Unique Words</div>
+                <div class="rb-right-box"> {{ currentResult.uniqueWordCount }} </div>
+            </div>
+            <div class="rb-result-entry-box">
+                <div class="rb-left-box">Unique Meta</div>
+                <div class="rb-right-box"> {{ currentResult.uniqueMetaCount }}</div>
+            </div>
+            <div class="rb-result-entry-box">
+                <div class="rb-left-box">Total Pages</div>
+                <div class="rb-right-box"> {{ currentResult.pageCount }}</div>
+            </div>
+            <div class="rb-result-entry-box">
+                <div class="rb-left-box">Total Images</div>
+                <div class="rb-right-box"> {{ currentResult.totalImageCount }}</div>
+            </div>
+        </div>
+</div>
+    <div class="result-menu">
+        <div class="result-menu-entry" ng-class="{selected : menuOption == 1}">
+            <a href="#/scope/current" ng-click="menuOption = 1">Summary</a>
+        </div>
+        <div class="result-menu-entry" ng-class="{selected : menuOption == 2}">
+            <a href="#/scope/page/list" ng-click="menuOption = 2">Pages</a>
+        </div>
+        <div class="result-menu-entry" ng-class="{selected : menuOption == 3}">
+            <a href="#/scope/segment/list" ng-click="menuOption = 3">Segments</a>
+        </div>
+        <div class="result-menu-entry">
+            Directory
+        </div>
+        <div class="result-menu-entry">
+            Images
+        </div>
+        <div class="result-menu-entry">
+            Files
+        </div>
+    </div>
     <div ng-view>
 
     </div>
+</div>
 </div>
 </div>
 </body>

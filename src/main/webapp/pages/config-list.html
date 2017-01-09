@@ -1,0 +1,21 @@
+
+<div class="content-container" data-ng-init="init()">
+    <div class="result-main-box">
+        <div class="config-list-entry-box" ng-repeat="config in configList">
+           <div class="config-list-entry-add" ng-click="loadConfig(config)">
+               +
+           </div>
+            <div class="config-list-entry-name">
+                {{ config.name }} <br />
+                <span class="entry-small">{{ config.issueNum }}</span>
+            </div>
+            <div class="config-list-entry-update">
+                update
+            </div>
+            <div class="config-list-entry-delete" ng-click="deleteConfig($index, config.id)">
+                delete
+            </div>
+
+        </div>
+    </div>
+</div>

@@ -1,54 +1,6 @@
-<div class="result-bar-container" ng-show="configLoaded">
-    <div class="rb-config-box">
-        {{ configName }} <img src="resources/img/balls.svg" style="float: right; margin-right: 5px"/>
-    </div>
-    <div class="rb-issue-box">
-        Issue #
-    </div>
-    <div class="rb-result-box">
-        <div class="rb-result-entry-box">
-            <div class="rb-left-box">Total Words</div>
-            <div class="rb-right-box"> 0</div>
-        </div>
-        <div class="rb-result-entry-box">
-            <div class="rb-left-box">Unique Words</div>
-            <div class="rb-right-box"> 0</div>
-        </div>
-        <div class="rb-result-entry-box">
-            <div class="rb-left-box">Unique Meta</div>
-            <div class="rb-right-box"> 0</div>
-        </div>
-        <div class="rb-result-entry-box">
-            <div class="rb-left-box">Total Pages</div>
-            <div class="rb-right-box"> 0</div>
-        </div>
-        <div class="rb-result-entry-box">
-            <div class="rb-left-box">Total Images</div>
-            <div class="rb-right-box"> 0</div>
-        </div>
-    </div>
-</div>
-<div class="content-container" ng-show="configLoaded">
-    <div class="result-menu">
-        <div class="result-menu-entry selected">
-            Summary
-        </div>
-        <div class="result-menu-entry">
-            Pages
-        </div>
-        <div class="result-menu-entry">
-            Segments
-        </div>
-        <div class="result-menu-entry">
-            Directory
-        </div>
-        <div class="result-menu-entry">
-            Images
-        </div>
-        <div class="result-menu-entry">
-            Files
-        </div>
-    </div>
+
+<div class="content-container">
+
     <div class="result-main-box">
         <div class="sum-left">
             <div class="sum-config-box">
@@ -60,7 +12,7 @@
 
                     <div class="kv-box">
                         <div class="key-box">Domain</div>
-                        <div class="value-box">www.example.com</div>
+                        <div class="value-box" ng-repeat="domain in currentConfig.domainList">{{ domain.domain }}</div>
                     </div>
                     <div class="kv-box">
                         <div class="key-box">Threads</div>
@@ -78,8 +30,7 @@
                     Include
                 </div>
                 <div class="content-box">
-                    /directory<br/>
-                    /en
+                    <span ng-repeat="include in currentConfig.includeList">{{ include.includePattern }}<br/></span>
                 </div>
             </div>
             <div class="sum-exc-box">
@@ -88,8 +39,7 @@
                     Exclude
                 </div>
                 <div class="content-box">
-                    /directory<br/>
-                    /en
+                    <span ng-repeat="exclude in currentConfig.excludeList">{{ exclude.excludePattern }}<br/></span>
                 </div>
             </div>
             <div class="sum-seed-box">
@@ -98,8 +48,7 @@
                     Seed List
                 </div>
                 <div class="content-box">
-                    /directory<br/>
-                    /en
+                    <span ng-repeat="seed in currentConfig.seedList">{{ seed.seedUrl }}<br/></span>
                 </div>
             </div>
         </div>
@@ -108,7 +57,7 @@
 
             </div>
             <div class="sum-running-box">
-
+            <span ng-repeat="page in currentResult.currentPageList">{{ page.url }}<br/></span>
             </div>
             <div class="sum-dir-box">
 
@@ -116,6 +65,9 @@
         </div>
     </div>
 
+</div>
+<div class="result-main-box">
+    pages list-------------------------------
 </div>
 <!-- when no config is loaded-->
 <div ng-show="!configLoaded">

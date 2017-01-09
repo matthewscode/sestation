@@ -4,6 +4,9 @@ off-white: #eaebeb
 dark grey: #313234
 dark blue: #07385c
 */
+
+
+
 html {
     font-family: 'Roboto', serif;
 }
@@ -138,6 +141,7 @@ a:visited {
     height: 95%;
     background: #b1b1b1;
     padding: 5px 5px 5px 5px;
+    overflow: auto;
 }
 /*#a2e4f5*/
 /*#009dd3*/
@@ -284,6 +288,8 @@ a:visited {
     width: 58%;
     background: #f1f1f1;
     margin-left: 10px;
+    padding: 20px;
+    line-height: 20px;
 }
 
 /*pie directory*/
@@ -296,25 +302,268 @@ a:visited {
 }
 /* creating config */
 .create-config {
-    background: #eaebeb;
+    background: #b1b1b1;
     width: 100%;
     height: 100%;
-    padding: 1% 10% 1% 10%;
 }
 .create-details {
+    float: left;
     padding: 10px;
-    width: 350px;
-    height: 100px;
-    background: #07385c;
-    color: #eaebeb;
-}
-
-.input-def {
+    width: 30%;
+    height: 150px;
     background: #eaebeb;
+    color: #eaebeb;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+.create-patterns {
+    float: left;
+    padding: 10px;
+    width: 30%;
+    height: 70%;
+    background: #eaebeb;
+    color: #eaebeb;
+    margin-right: 10px;
+}
+.create-button {
+    float: left;
+    width: 90%;
+    margin-left: 10px;
+    text-align: center;
+    background: #1e5b85;
+    height: 50px;
+    line-height: 50px;
+    font-size: 28px;
+    margin-top: 10px;
+    color: #f1f1f1;
+}
+.create-button:hover {
+    cursor: pointer;
+    background: #07385c;
+}
+.input-def {
+    background: #f1f1f1;
     color: #313234;
-    padding: 5px;
+    padding: 8px;
     font-size: 18px;
     border: none;
     width: 100%;
     margin-bottom: 10px;
+}
+
+.config-name {
+    float: left;
+}
+.config-start {
+    float: right;
+}
+.config-stop {
+    cursor: pointer;
+}
+.start-icon {
+    font-size: 40px;
+}
+.start-icon:hover {
+    cursor: pointer;
+}
+.move-top {
+    height: 0px;
+}
+.config-textarea {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #f1f1f1;
+    font-size: 18px;
+    padding: 5px;
+    overflow: auto;
+    white-space: nowrap;
+}
+.config-list-entry-box {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+.config-list-entry-box:hover {
+    cursor: pointer;
+
+}
+.config-list-entry-name {
+    float: left;
+    width: 80%;
+    background: #eaebeb;
+    height: 100%;
+    line-height: 25px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 5px 5px 5px 10px;
+    margin-right: 5px;
+}
+.config-list-entry-add {
+    float: left;
+    width: 5%;
+    background: #eaebeb;
+    height: 100%;
+    margin-bottom: 10px;
+    margin-right: 5px;
+
+}
+
+.config-list-entry-add:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+
+.config-list-entry-update {
+    float: left;
+    width: 5%;
+    background: #eaebeb;
+    height: 100%;
+    margin-bottom: 10px;
+    margin-right: 5px;
+
+}
+
+.config-list-entry-update:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.config-list-entry-delete {
+    float: left;
+    width: 5%;
+    background: #eaebeb;
+    height: 100%;
+    margin-bottom: 10px;
+    margin-right: 5px;
+
+}
+
+.config-list-entry-delete:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.entry-small {
+    font-size: 12px;
+}
+
+.page-list-entry-box {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+.page-list-entry-box:hover {
+    cursor: pointer;
+
+}
+.page-list-entry-url {
+    float: left;
+    width: 85%;
+    background: #eaebeb;
+    height: 100%;
+    text-align: left;
+    padding: 0px 0px 0px 10px;
+    margin-right: 5px;
+}
+.page-list-entry-index {
+    float: left;
+    width: 3%;
+    background: #eaebeb;
+    height: 100%;
+    margin-right: 5px;
+
+}
+
+.page-list-entry-index:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.page-list-entry-index {
+    float: left;
+    width: 3%;
+    background: #eaebeb;
+    height: 100%;
+    margin-right: 5px;
+
+}
+
+.page-list-entry-index:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.page-list-entry-words {
+    float: left;
+    width: 6%;
+    background: #eaebeb;
+    height: 100%;
+}
+
+.page-list-entry-words:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.segment-list-entry-box {
+    width: 100%;
+    min-height: 40px;
+    height: 40px;
+    max-height: 80px;
+    line-height: 40px;
+    margin-bottom: 5px;
+    text-align: center;
+    font-size: 18px;
+}
+.segment-list-entry-box:hover {
+    cursor: pointer;
+
+}
+.segment-list-entry-segment {
+    float: left;
+    width: 85%;
+    background: #eaebeb;
+    height: 100%;
+    text-align: left;
+    padding: 0px 0px 0px 10px;
+    margin-right: 5px;
+}
+.segment-list-entry-index {
+    float: left;
+    width: 3%;
+    background: #eaebeb;
+    height: 100%;
+    margin-right: 5px;
+
+}
+
+.segment-list-entry-index:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.segment-list-entry-index {
+    float: left;
+    width: 3%;
+    background: #eaebeb;
+    height: 100%;
+    margin-right: 5px;
+
+}
+
+.segment-list-entry-index:hover{
+    background: #07385c;
+    color: #f1f1f1;
+}
+.segment-list-entry-words {
+    float: left;
+    width: 6%;
+    background: #eaebeb;
+    height: 100%;
+}
+
+.segment-list-entry-words:hover{
+    background: #07385c;
+    color: #f1f1f1;
 }

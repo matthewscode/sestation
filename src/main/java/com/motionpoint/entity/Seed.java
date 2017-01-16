@@ -1,8 +1,10 @@
 package com.motionpoint.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Matthew on 8/10/2016.
@@ -14,7 +16,8 @@ public class Seed {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-
+    @NotNull
+    @NotEmpty
     private String seedUrl;
 
     @ManyToOne

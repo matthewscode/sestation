@@ -1,8 +1,10 @@
 package com.motionpoint.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.List;
 
@@ -16,23 +18,24 @@ public class ScopeConfig {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-
+    @NotNull
+    @NotEmpty
     private String name;
 
     private int issueNum;
 
     private long timestamp = (new Date().getTime())/1000;
 
-    @OneToMany(mappedBy = "scopeConfig", orphanRemoval = true)
+    @OneToMany(mappedBy = "scopeConfig", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ScopeDomain> domainList;
 
-    @OneToMany(mappedBy = "scopeConfig", orphanRemoval = true)
+    @OneToMany(mappedBy = "scopeConfig", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<ScopeInclude> includeList;
 
-    @OneToMany(mappedBy = "scopeConfig", orphanRemoval = true)
+    @OneToMany(mappedBy = "scopeConfig", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Seed> seedList;
 
-    @OneToMany(mappedBy = "scopeConfig", orphanRemoval = true)
+    @OneToMany(mappedBy = "scopeConfig", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Exclude> excludeList;
 
 

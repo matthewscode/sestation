@@ -1,66 +1,33 @@
 
+
 <div class="content-container">
 
     <div class="result-main-box">
-        <div class="sum-left">
-            <div class="sum-config-box">
-                <div class="sum-icon-box">
-                    <i class="material-icons sum-icon" style="color: #1e5b85">description</i><br/>
-                    Config
-                </div>
-                <div class="content-box">
-
-                    <div class="kv-box">
-                        <div class="key-box">Domain</div>
-                        <div class="value-box" ng-repeat="domain in currentConfig.domainList">{{ domain.domain }}</div>
-                    </div>
-                    <div class="kv-box">
-                        <div class="key-box">Threads</div>
-                        <div class="value-box">3</div>
-                    </div>
-                    <div class="kv-box">
-                        <div class="key-box">Delay</div>
-                        <div class="value-box">0</div>
-                    </div>
-                </div>
-            </div>
-            <div class="sum-inc-box">
-                <div class="sum-icon-box">
-                    <i class="material-icons sum-icon" style="color: #2ec866">thumb_up</i><br/>
-                    Include
-                </div>
-                <div class="content-box">
-                    <span ng-repeat="include in currentConfig.includeList">{{ include.includePattern }}<br/></span>
-                </div>
-            </div>
-            <div class="sum-exc-box">
-                <div class="sum-icon-box">
-                    <i class="material-icons sum-icon" style="color: #dd8877">thumb_down</i><br/>
-                    Exclude
-                </div>
-                <div class="content-box">
-                    <span ng-repeat="exclude in currentConfig.excludeList">{{ exclude.excludePattern }}<br/></span>
-                </div>
-            </div>
-            <div class="sum-seed-box">
-                <div class="sum-icon-box">
-                    <i class="material-icons sum-icon">playlist_play</i><br/>
-                    Seed List
-                </div>
-                <div class="content-box">
-                    <span ng-repeat="seed in currentConfig.seedList">{{ seed.seedUrl }}<br/></span>
-                </div>
-            </div>
-        </div>
         <div class="sum-right">
             <div class="sum-ppm-box">
-
+                <canvas id="line" class="chart chart-line" chart-data="currentResult.ppmList"
+                        chart-labels="currentResult.ppmEntries" chart-series="series" chart-options="options"
+                        chart-dataset-override="datasetOverride" chart-click="onClick">
+                </canvas>
             </div>
             <div class="sum-running-box">
-            <span ng-repeat="page in currentResult.currentPageList">{{ page.url }}<br/></span>
+                <span ng-repeat="page in currentResult.currentPageList">{{ page.url }}<br/></span>
+                <span ng-hide="currentResult.running" class="alert"><br/>NO PAGES ARE RUNNING</span>
             </div>
-            <div class="sum-dir-box">
-
+            <div ng-controller="donutCtrl">
+            <div class="sum-dir-box" >
+                <canvas id="doughnut" class="chart chart-doughnut"
+                        chart-data="data" chart-labels="labels">
+                </canvas>
+            </div>
+            <div class="sum-dir-right">
+            </div>
+            </div>
+            <div class="sum-seg-box">
+                <span ng-repeat="seg in currentResult.latestSegments">{{ seg }}<br/><br/></span>
+            </div>
+            <div class="sum-image-box">
+                <div class="sum-image-entry" ng-repeat="img in currentResult.latestImageList"><img src="{{ img }}" class="sum-image" /></div>
             </div>
         </div>
     </div>

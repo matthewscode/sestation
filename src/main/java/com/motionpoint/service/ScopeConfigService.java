@@ -12,6 +12,7 @@ public interface ScopeConfigService {
     List<ScopeConfig> getAllScopeConfigs();
     boolean deleteScopeConfig(long configId);
     ScopeConfig getScopeConfig(long configId);
+    boolean updateCurrentScopeConfig(ScopeConfig scopeConfig);
     boolean updateScopeConfig(ScopeConfig scopeConfig);
 }
 

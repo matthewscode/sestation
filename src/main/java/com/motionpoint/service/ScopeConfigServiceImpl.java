@@ -28,6 +28,7 @@ public class ScopeConfigServiceImpl implements ScopeConfigService{
 
 
     @Override
+    @Transactional
     public boolean createScopeConfig(ScopeConfig scopeConfig) {
         ScopeConfig cs = scopeConfigDao.save(scopeConfig);
         for(ScopeDomain sd : cs.getDomainList()){
@@ -46,6 +47,26 @@ public class ScopeConfigServiceImpl implements ScopeConfigService{
             exclude.setScopeConfig(cs);
             excludeDao.save(exclude);
         }
+        return true;
+    }
+
+    @Override
+    @Transactional
+    public boolean updateScopeConfig(ScopeConfig scopeConfig) {
+        ScopeConfig oldConfig = scopeConfigDao.findOne(scopeConfig.getId());
+        for(Seed seed : oldConfig.getSeedList()){
+            seedDao.delete(seed);
+        }
+        for(ScopeDomain domain : oldConfig.getDomainList()){
+            scopeDomainDao.delete(domain);
+        }
+        for(ScopeInclude include : oldConfig.getIncludeList()){
+            scopeIncludeDao.delete(include);
+        }
+        for(Exclude exclude : oldConfig.getExcludeList()){
+            excludeDao.delete(exclude);
+        }
+        createScopeConfig(scopeConfig);
         return true;
     }
 
@@ -73,22 +94,8 @@ public class ScopeConfigServiceImpl implements ScopeConfigService{
     }
 
     @Override
-    public boolean updateScopeConfig(ScopeConfig scopeConfig) {
-        try{
-            for(Exclude exl : scopeConfig.getExcludeList()){
-                exl.setScopeConfig(scopeConfig);
-                excludeDao.save(exl);
-            }
-            for(Seed seed : scopeConfig.getSeedList()){
-                seed.setScopeConfig(scopeConfig);
-                seedDao.save(seed);
-            }
-            scopeConfigDao.save(scopeConfig);
-        } catch (Exception e){
-            e.printStackTrace();
-            return false;
-        }
-
-        return true;
+    public boolean updateCurrentScopeConfig(ScopeConfig scopeConfig) {
+//
+        return false;
     }
 }

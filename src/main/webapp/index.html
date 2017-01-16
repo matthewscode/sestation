@@ -5,6 +5,8 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.js"></script>
+    <script src="../resources/js/Chart.min.js"></script>
+    <script src="../resources/js/angular-chart.min.js"></script>
     <!--<script src="resources/angular/Chart.min.js"></script>-->
     <!--<script src="resources/angular/angular-chart.min.js"></script>-->
     <script src="resources/app/ses-app.js"></script>
@@ -13,13 +15,19 @@
 <body data-ng-app="sesApp">
 <div ng-controller="mainCtrl">
 <div class="nav-top-container">
-    <a href="#/scope/create">Create</a>
-    <a href="#/scope/list">List</a>
+    <div class="nav-top-entry-container">
+    <a href="#/scope/create" class="nav-top-entry"><i class="material-icons nav-top-icon">note_add</i></a>
+    <div class="nav-top-search">
+        <input type="text" class="nav-top-input" placeholder="" />
+        <a href="#/scope/list" class="nav-top-entry" style="width: 20px;"><i class="material-icons nav-top-icon">search</i></a>
+    </div>
+        <a href="#/admin" class="nav-top-entry"><i class="material-icons nav-top-icon">developer_board</i></a>
+</div>
 </div>
 <div class="bottom-container">
     <div class="result-bar-container" ng-show="configLoaded" data-ng-init="init()">
         <div class="rb-config-box">
-            <div class="config-name">{{ currentConfig.name }}</div>
+            <div class="config-name">{{ current.config.name }}</div>
             <div class="config-start" ng-show="currentResult.running" ng-click="stop()">
                 <img src="resources/img/balls.svg" style="float: right; margin-right: 5px"/>
             </div>
@@ -28,9 +36,9 @@
             </div>
         </div>
         <div class="rb-issue-box">
-            Issue # {{ currentConfig.issueNum }}
+            Issue # {{ current.config.issueNum }}
         </div>
-        <div class="rb-result-box">
+        <div class="rb-result-box" ng-class="{'no-height': !displayResults}">
             <div class="rb-result-entry-box">
                 <div class="rb-left-box">Total Words</div>
                 <div class="rb-right-box"> {{ currentResult.uniqueWordCount }} </div>
@@ -52,23 +60,85 @@
                 <div class="rb-right-box"> {{ currentResult.totalImageCount }}</div>
             </div>
         </div>
+        <div class="result-config" ng-class="{'no-height': displayResults}">
+            <div class="sum-left">
+                <div class="sum-config-box">
+                    <div class="sum-icon-box">
+                        <i class="material-icons sum-icon" style="color: #1e5b85">description</i><br/>
+                        Config
+                    </div>
+                    <div class="content-box">
+
+                        <div class="kv-box">
+                            <div class="key-box">Domain</div>
+                            <div class="value-box" ng-repeat="domain in current.config.domainList">{{ domain.domain }}</div>
+                        </div>
+                        <div class="kv-box">
+                            <div class="key-box">Threads</div>
+                            <div class="value-box">3</div>
+                        </div>
+                        <div class="kv-box">
+                            <div class="key-box">Delay</div>
+                            <div class="value-box">0</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sum-inc-box">
+                    <div class="sum-icon-box">
+                        <i class="material-icons sum-icon" style="color: #2ec866">thumb_up</i><br/>
+                        Include
+                    </div>
+                    <div class="content-box">
+                        <span ng-repeat="include in current.config.includeList">{{ include.includePattern }}<br/></span>
+                    </div>
+                </div>
+                <div class="sum-exc-box">
+                    <div class="sum-icon-box">
+                        <i class="material-icons sum-icon" style="color: #dd8877">thumb_down</i><br/>
+                        Exclude
+                    </div>
+                    <div class="content-box">
+                        <span ng-repeat="exclude in current.config.excludeList">{{ exclude.excludePattern }}<br/></span>
+                    </div>
+                </div>
+                <div class="sum-seed-box">
+                    <div class="sum-icon-box">
+                        <i class="material-icons sum-icon">playlist_play</i><br/>
+                        Seed List
+                    </div>
+                    <div class="content-box">
+                        <span ng-repeat="seed in current.config.seedList">{{ seed.seedUrl }}<br/></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="machine-list-box">
+            <button class="result-config-button" ng-click="displayResults = !displayResults">^ ^</button>
+            <div class="machine-entry" ng-repeat="mach in machineList">
+                <button class="machine-entry-button" ng-click="selectMachine(mach)" ng-class="{ 'machine-icon-select' : current.machine.name == mach.name}"><img src="resources/img/{{mach.name}}.png" class="machine-icon" /><br/>{{ mach.name }}</button>
+            </div>
+            <div class="machine-entry">
+                <button class="machine-entry-button" ng-click="selectMachine(mach)"><img src="resources/img/Tengoku.png" class="machine-icon" /><br/>Tengoku</button>
+            </div>
+            </div>
 </div>
     <div class="result-menu">
-        <div class="result-menu-entry" ng-class="{selected : menuOption == 1}">
-            <a href="#/scope/current" ng-click="menuOption = 1">Summary</a>
+        <div class="result-menu-entry" ng-class="{selected : menu.option == 1}">
+            <a href="#/scope/current">Summary</a>
         </div>
-        <div class="result-menu-entry" ng-class="{selected : menuOption == 2}">
-            <a href="#/scope/page/list" ng-click="menuOption = 2">Pages</a>
+        <div class="result-menu-entry" ng-class="{selected : menu.option == 2}">
+            <a href="#/scope/page/list">Pages</a>
         </div>
-        <div class="result-menu-entry" ng-class="{selected : menuOption == 3}">
-            <a href="#/scope/segment/list" ng-click="menuOption = 3">Segments</a>
+        <div class="result-menu-entry" ng-class="{selected : menu.option == 3}">
+            <a href="#/scope/segment/list">Segments</a>
+        </div>
+        <div class="result-menu-entry" ng-class="{selected : menu.option == 4}">
+            <a href="#/scope/image/list">Images</a>
         </div>
         <div class="result-menu-entry">
             Directory
         </div>
-        <div class="result-menu-entry">
-            Images
-        </div>
+
         <div class="result-menu-entry">
             Files
         </div>

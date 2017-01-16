@@ -25,17 +25,59 @@ body {
     overflow: hidden;
 }
 a {
-    color: inherit;
     text-decoration: none;
 }
 a:visited {
     color: inherit;
+}
+
+.no-height {
+    height: 0px !important;
+    overflow: hidden;
 }
 /*navigation*/
 .nav-top-container{
     width: 200%;
     height: 50px;
     background: #222;
+}
+.nav-top-entry-container {
+    width: 1000px;
+    margin: auto;
+}
+.nav-top-entry {
+    float: left;
+    width: 120px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 50px;
+    color: #b1b1b1 !important;
+    text-align: center;
+    margin: 0px 20px 0px 20px;
+}
+.nav-top-entry:hover {
+    cursor: pointer;
+    color: #1e5b85 !important;
+}
+.nav-top-icon {
+    float: left;
+    font-size: 30px;
+    margin-top: 8px;
+}
+.nav-top-search {
+    float: left;
+    height: 100%;
+    width: 200px;
+    background: #282828;
+    text-align: right;
+}
+.nav-top-input {
+    float: left;
+    height: 100%;
+    width: 70%;
+    border: none;
+    background: #282828;
+    padding: 2px;
 }
 /* main content */
 .bottom-container {
@@ -92,7 +134,20 @@ a:visited {
     width: 48%;
     text-align: right;
 }
-
+.result-config {
+    height: 400px;
+    width: 100%;
+}
+.result-config-button {
+    width: 100%;
+    background: #f1f1f1;
+    bordeR: none;
+}
+.result-config-button:hover {
+    cursor: pointer;
+    background: #07385c;
+    color: #f1f1f1;
+}
 /* main area*/
 .content-container {
     display: inline-block;
@@ -147,48 +202,48 @@ a:visited {
 /*#009dd3*/
 /*#f29c98*/
 .sum-left{
-    width: 40%;
-    height: 100%;
+    width: 100%;
+    height: 500px;
     float: left;
 }
 .sum-right{
-    width: 59%;
+    width: 100%;
     height: 100%;
     float: left;
-    padding-left: 10px;
+    padding-left: 5px;
 }
 .sum-config-box {
     background: #f1f1f1;
     display: inline-block;
-    height: 13%;
+    height: 120px;
     width: 100%;
     overflow: auto;
-    margin: 0 10px 10px 0px;
+    margin: 0 10px 2px 0px;
     color: #313234;
 }
 .sum-inc-box {
     background: #f1f1f1;
     display: inline-block;
-    height: 14%;
+    height: 120px;
     width: 100%;
     overflow: auto;
-    margin: 0 10px 10px 0px;
+    margin: 0 10px 2px 0px;
     color: #313234;
 }
 .sum-exc-box {
     background: #f1f1f1;
     display: inline-block;
-    height: 14%;
+    height: 130px;
     width: 100%;
     overflow: auto;
-    margin: 0 10px 10px 0px;
+    margin: 0 10px 2px 0px;
     color: #313234;
 }
 .sum-seed-box {
     background: #f1f1f1;
     display: inline-block;
     min-height: 22%;
-    height: 40%;
+    height: 125px;
     width: 100%;
     overflow: auto;
     margin: 0 10px auto 0px;
@@ -276,29 +331,76 @@ a:visited {
 /*pages per minute*/
 .sum-ppm-box {
     float: left;
-    height: 28%;
-    width: 40%;
+    height: 30%;
+    width: 38%;
     background: #f1f1f1;
+    padding: 10px;
 }
 
 /*running pages*/
 .sum-running-box {
     float: left;
-    height: 28%;
-    width: 58%;
+    height: 30%;
+    width: 59%;
     background: #f1f1f1;
     margin-left: 10px;
     padding: 20px;
-    line-height: 20px;
+    line-height: 40px;
 }
 
 /*pie directory*/
 .sum-dir-box {
-    width: 99%;
-    height: 55%;
+    width:  55%;
+    height: 50%;
+    float: left;
+    margin-top: 10px;
+    padding-top: 10px;
+    margin-left: -10%;
+}
+.sum-dir-right {
+    width: 38%;
+    height: 50%;
+    float: left;
+    margin-top: 10px;
+    background: #f1f1f1;
+    margin-left: -45%;
+    text-align: right;
+}
+.sum-dir-entry {
+    margin-right: 20px;
+    height: 15%;
+    overflow: hidden;
+}
+.sum-seg-box {
+    width:  59%;
+    height: 50%;
     float: left;
     background: #f1f1f1;
     margin-top: 10px;
+    padding-top: 10px;
+    padding: 5px;
+    overflow: auto;
+    margin-left: -6.3%;
+}
+.sum-image-box {
+    width:  98%;
+    height: 17%;
+    float: left;
+    background: #f1f1f1;
+    padding: 2px;
+    margin-top: 10px;
+}
+.sum-image-entry {
+    float: left;
+    height: 100%;
+    width: 19%;
+    margin-right: 2px;
+}
+.sum-image {
+    height: auto;
+    width: auto;
+    max-height: 100%;
+    max-width: 100%;
 }
 /* creating config */
 .create-config {
@@ -356,6 +458,9 @@ a:visited {
 }
 .config-start {
     float: right;
+}
+.config-start:hover {
+    cursor: pointer;
 }
 .config-stop {
     cursor: pointer;
@@ -566,4 +671,108 @@ a:visited {
 .segment-list-entry-words:hover{
     background: #07385c;
     color: #f1f1f1;
+}
+.image-entry {
+    background: #eaebeb;
+    display: inline-block;
+    width: 19%;
+    height: 12%;
+    margin: 0px 0px 4px 5px;
+    overflow: auto;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.image-entry:hover {
+    cursor: pointer;
+    background-color: rgba(60,127,182, 0.9);
+
+}
+
+.image-count-box {
+    position: fixed;
+    floaT: right;
+    margin-top: 2px;
+    margin-left: 2px;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background: #313234;
+    color: #f1f1f1;
+}
+
+.admin-create-box {
+    padding: 10px;
+    width: 92%;
+    background: #eaebeb;
+}
+.machine-list-box {
+}
+.machine-entry-button {
+    border: none;
+    background: none;
+    text-align: center;
+    color: #eaebeb;
+    font-weight: 500;
+    font-size: 20px;
+    float: left;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.machine-entry-button:hover {
+    cursor:pointer;
+}
+
+.machine-icon {
+    float: left;
+    width: 100px;
+}
+.machine-icon-selected {
+    width: 150px;
+    background: #b1b1b1;
+}
+
+.alert {
+    display: block;
+    width: 100%;
+    font-size: 30px;
+    font-weight: 700;
+    color: #b1b1b1;
+    text-align: center;
+}
+
+/* login */
+/*login*/
+.login-container {
+    width: 100.00vw;
+    height: 100.00vh;
+    text-align: center;
+}
+.login-box{
+    width: 400px;
+    height: 200px;
+    background: #CCC;
+    margin: auto;
+    margin-top: 250px;
+    padding:45px;
+}
+.login-input {
+    border: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    padding: 3px;
+    width: 200px;
+}
+.login-submit {
+    color: #FFF;
+    border: 0px;
+    margin-bottom: 5px;
+    height: 30px;
+    padding: 3px;
+    width: 200px;
+}
+.login-submit:hover {
+    cursor: pointer;
+    background: #3C7FB6;
 }

@@ -10,20 +10,18 @@ import javax.validation.constraints.NotNull;
  * Created by Matthew on 8/10/2016.
  */
 @Entity
-@Table(name = "exclude")
-public class Exclude {
+@Table(name = "machine")
+public class Machine {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     long id;
-
     @NotNull
     @NotEmpty
-    private String excludePattern;
-
-    @ManyToOne
-    @JsonIgnore
-    private ScopeConfig scopeConfig;
+    private String name;
+    @NotNull
+    @NotEmpty
+    private String location;
 
     public long getId() {
         return id;
@@ -33,19 +31,19 @@ public class Exclude {
         this.id = id;
     }
 
-    public String getExcludePattern() {
-        return excludePattern;
+    public String getName() {
+        return name;
     }
 
-    public void setExcludePattern(String excludePattern) {
-        this.excludePattern = excludePattern;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public ScopeConfig getScopeConfig() {
-        return scopeConfig;
+    public String getLocation() {
+        return location;
     }
 
-    public void setScopeConfig(ScopeConfig scopeConfig) {
-        this.scopeConfig = scopeConfig;
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

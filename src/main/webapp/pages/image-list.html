@@ -1,0 +1,9 @@
+<div class="content-container" data-ng-init="init()">
+    <div class="image-count-box">{{ imageCount }}</div>
+    <div class="result-main-box">
+    <div ng-repeat="image in imageList" style="background-image: url({{ image.url }})" class="image-entry"
+         ng-class="{'image-selected': image.selected}"
+         ng-click="imagePlus()">
+    </div>
+        </div>
+</div>

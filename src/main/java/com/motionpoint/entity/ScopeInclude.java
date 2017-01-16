@@ -1,8 +1,10 @@
 package com.motionpoint.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Matthew on 11/3/2016.
@@ -13,7 +15,8 @@ public class ScopeInclude {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private long id;
-
+    @NotNull
+    @NotEmpty
     private String includePattern;
 
     @ManyToOne

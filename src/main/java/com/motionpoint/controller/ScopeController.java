@@ -1,17 +1,21 @@
 package com.motionpoint.controller;
 
 import com.motionpoint.dao.ScopeConfigDao;
+import com.motionpoint.entity.Machine;
 import com.motionpoint.entity.ScopeConfig;
 import com.motionpoint.service.ScopeConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.web.ServerProperties;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 /**
  * Created by Matthew on 1/7/2017.
  */
 @RestController
+@SessionAttributes(value = "machine", types = {Machine.class})
 public class ScopeController {
 
     @Autowired
@@ -27,13 +31,23 @@ public class ScopeController {
     public boolean deleteScopeConfig(@PathVariable long configId) {
         return scopeConfigService.deleteScopeConfig(configId);
     }
-
     @RequestMapping(value = "/scope/list/", method = RequestMethod.GET)
     public List<ScopeConfig> displayScopeConfigs() {
         return scopeConfigService.getAllScopeConfigs();
     }
+
     @RequestMapping(value = "/scope/get/{configId}/", method = RequestMethod.GET)
     public ScopeConfig getConfig(@PathVariable long configId) {
         return scopeConfigService.getScopeConfig(configId);
     }
+
+    @RequestMapping(value = "/machine/current/", method = RequestMethod.POST)
+    public Machine setCurrentMachine(@RequestBody Machine jsonMmachine) {
+        return null;
+    }
+//    @RequestMapping(value = "/machine/current/", method = RequestMethod.GET)
+//    public Machine getCurrentMachine(HttpSession session) {
+//        return (Machine)session.getAttribute("machine");
+//    }
+
 }

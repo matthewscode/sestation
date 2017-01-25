@@ -55,6 +55,10 @@ sesApp.config(function($routeProvider) {
             templateUrl : 'pages/admin.html',
             controller  : 'adminCtrl'
         })
+        .when('/report/create/', {
+            templateUrl : 'pages/report-create.html',
+            controller  : 'reportCtrl'
+        })
 
 
 
@@ -68,8 +72,10 @@ sesApp.controller('mainCtrl', ['$scope', '$http', '$interval', '$location', func
     $scope.current = {};
     $scope.current.config = {};
     $scope.current.machine = {};
+    $scope.current.machine.name = 'Select';
     $scope.current.machine.location = 'https://mpscope.herokuapp.com';
     $scope.displayResults = true;
+    $scope.showMachineList = false;
     var resultsInterval = null,
         waitingToStart = false;
 
@@ -132,6 +138,7 @@ sesApp.controller('mainCtrl', ['$scope', '$http', '$interval', '$location', func
     $scope.selectMachine = function(machine){
         $scope.current.machine = machine;
         $scope.init();
+        $scope.showMachineList = false;
     }
 }]);
 

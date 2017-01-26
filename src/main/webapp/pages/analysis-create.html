@@ -1,0 +1,32 @@
+
+<div class="analysis-create-container">
+        <div class="create-config" data-ng-int="init()">
+            <div class="analysis-create-details">
+                <input type="text" class="input-def" placeholder="Client Name" ng-model="newAnalysis.clientName"/>
+                <input type="text" class="input-def" placeholder="Your Name" ng-model="newAnalysis.analyst"/>
+            </div>
+            <div class="analysis-create-details">
+                <input type="text" class="input-def" placeholder="Total Words" ng-model="newAnalysis.foundWords"/>
+                <input type="text" class="input-def" placeholder="Unique Words" ng-model="newAnalysis.words"/>
+            </div>
+            <div class="analysis-create-details">
+                <input type="text" class="input-def" placeholder="Total Images" ng-model="newAnalysis.foundImages"/>
+                <input type="text" class="input-def" placeholder="Translatable Images" ng-model="newAnalysis.Images"/>
+            </div>
+            <div class="analysis-create-list">
+                <textarea placeholder="Top Directories largest to smallest" class="config-textarea" ng-model="newAnalysis.directoryList"></textarea>
+            </div>
+            <div class="analysis-create-list" style="width: 10%;">
+                <textarea placeholder="word counts" class="config-textarea" ng-model="newAnalysis.directorySizeList"></textarea>
+            </div>
+            <div class="analysis-create-list">
+                <textarea placeholder="Sample Image Urls" class="config-textarea" ng-model="newAnalysis.imageList"></textarea>
+            </div>
+            <div class="analysis-create-list">
+                <textarea placeholder="Sitemap Urls" class="config-textarea" ng-model="newAnalysis.sitemapList"></textarea>
+            </div>
+            <div class="analysis-create-button" ng-click="createAnalysis()">
+                Create Analysis
+            </div>
+        </div>
+</div>

@@ -2,6 +2,7 @@ package com.motionpoint.controller;
 
 import org.springframework.stereotype.Controller;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Created by Matthew on 7/27/2016.
  */
 @Controller
-@RequestMapping
+@RequestMapping("/")
 public class MainController {
 
     @RequestMapping("/")
@@ -18,9 +19,15 @@ public class MainController {
         return "index.html";
     }
 
+    @RequestMapping("/analysis/final/*")
+    public String analysisPage(){
+        return "site-analysis.html";
+    }
+
     @RequestMapping("/signin")
     public String login(){
         return "login.html";
     }
+
 
 }

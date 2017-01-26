@@ -13,8 +13,9 @@ var configListPattern ='/scope/list/';
 var deleteConfigPattern = '/scope/delete/';
 var createMachinePattern = '/machine/create/';
 var machineListPattern = '/machine/list/all/';
-var currentResultsPattern = '/scope/current';
-
+var currentResultsPattern = '/scope/current/';
+var createAnalysisPattern = '/analysis/create/';
+var analysisListPattern = '/analysis/list/all/';
 var getConfigPattern = '/scope/get/';
 var sesApp = angular.module('sesApp', ['ngRoute','chart.js']);
 sesApp.config(function($routeProvider) {
@@ -55,10 +56,14 @@ sesApp.config(function($routeProvider) {
             templateUrl : 'pages/admin.html',
             controller  : 'adminCtrl'
         })
-        .when('/report/create/', {
-            templateUrl : 'pages/report-create.html',
-            controller  : 'reportCtrl'
+        .when('/analysis/create/', {
+            templateUrl : 'pages/analysis-create.html',
+            controller  : 'analysisCtrl'
         })
+        .when('/analysis/list/', {
+            templateUrl : 'pages/analysis-list.html',
+            controller  : 'analysisCtrl'
+        });
 
 
 
@@ -258,6 +263,24 @@ sesApp.controller('adminCtrl', ['$scope', '$http', function($scope, $http){
         $http.post(createMachinePattern, $scope.newMachine)
             .success(function() {
                 console.log('created machine');
+            })
+    }
+}]);
+sesApp.controller('analysisCtrl', ['$scope', '$http', '$location', function($scope, $http, $location){
+    $scope.newAnalysis = {};
+    $scope.analysisList = {};
+    $scope.createAnalysis = function () {
+        $http.post(createAnalysisPattern, $scope.newAnalysis)
+            .success(function() {
+                console.log('created machine');
+                $location.path(currentResultsPattern);
+            })
+    }
+    $scope.init = function () {
+        $http.get(analysisListPattern)
+            .success(function(data) {
+                $scope.analysisList = data;
+                console.log('got analysis list');
             })
     }
 }]);

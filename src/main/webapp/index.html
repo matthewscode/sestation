@@ -1,12 +1,13 @@
 <html>
 <head>
     <title>SE STATION</title>
+        <link rel="icon" href="resources/img/Select.png">
     <link href='https://fonts.googleapis.com/css?family=Roboto:500,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.9/angular-route.js"></script>
-    <script src="../resources/js/Chart.min.js"></script>
-    <script src="../resources/js/angular-chart.min.js"></script>
+    <script src="resources/js/Chart.min.js"></script>
+    <script src="resources/js/angular-chart.min.js"></script>
     <!--<script src="resources/angular/Chart.min.js"></script>-->
     <!--<script src="resources/angular/angular-chart.min.js"></script>-->
     <script src="resources/app/ses-app.js"></script>
@@ -24,23 +25,24 @@
                 </button>
             </div>
             <div class="machine-entry">
-                <button class="machine-entry-button" ng-click="selectMachine(mach)"><img src="resources/img/Tengoku.png"
-                                                                                         class="machine-icon"/><br/>Tengoku
+                <button class="machine-entry-button" ng-click="selectMachine(mach)">
+                    <img src="resources/img/Tengoku.png" class="machine-icon"/><br/>Tengoku
                 </button>
             </div>
         </div>
         <div class="machine-box" ng-click="showMachineList = !showMachineList">
             <img src="resources/img/{{current.machine.name}}.png" class="machine-icon"
-                 style="height: 40px; width: auto; margin: 5px 5px 0 0;" ng-show="current.machine.name"/> {{
-            current.machine.name }}
+                 style="height: 40px; width: auto; margin: 5px 5px 0 0;" ng-show="current.machine.name"/>
+            {{ current.machine.name }}
         </div>
         <div class="nav-top-entry-container">
-
-            <a href="#/scope/create" class="nav-top-entry"><i class="material-icons nav-top-icon">note_add</i></a>
+            <a href="#/scope/create/" class="nav-top-entry"><i class="material-icons nav-top-icon">note_add</i></a>
+            <a href="#/analysis/list/" class="nav-top-entry"><i class="material-icons nav-top-icon">list</i></a>
             <div class="nav-top-search">
                 <input type="text" class="nav-top-input" placeholder=""/>
-                <a href="#/scope/list" class="nav-top-entry" style="width: 20px;"><i
-                        class="material-icons nav-top-icon">search</i></a>
+                <a href="#/scope/list" class="nav-top-entry" style="width: 20px;">
+                    <i class="material-icons nav-top-icon">search</i>
+                </a>
             </div>
             <a href="#/admin" class="nav-top-entry"><i class="material-icons nav-top-icon">developer_board</i></a>
         </div>
@@ -138,8 +140,8 @@
                 </div>
 
             </div>
-            <a href="#/report/create" class="result-bottom-box">
-                Create Report
+            <a href="/#/analysis/create" class="result-bottom-box">
+                Create Analysis
             </a>
         </div>
         <div class="result-menu">

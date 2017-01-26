@@ -1,7 +1,9 @@
 package com.motionpoint.controller;
 
+import com.motionpoint.dao.ScopeAnalysisDao;
 import com.motionpoint.dao.ScopeConfigDao;
 import com.motionpoint.entity.Machine;
+import com.motionpoint.entity.ScopeAnalysis;
 import com.motionpoint.entity.ScopeConfig;
 import com.motionpoint.service.ScopeConfigService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +22,11 @@ public class ScopeController {
 
     @Autowired
     private ScopeConfigService scopeConfigService;
-
+    @Autowired
+    private ScopeAnalysisDao scopeAnalysisDao;
 
     @RequestMapping(value = "/scope/create/", method = RequestMethod.POST)
-    boolean createScope(@RequestBody ScopeConfig jsonScope){
+    public boolean createScope(@RequestBody ScopeConfig jsonScope){
         return scopeConfigService.createScopeConfig(jsonScope);
     }
 
@@ -49,5 +52,21 @@ public class ScopeController {
 //    public Machine getCurrentMachine(HttpSession session) {
 //        return (Machine)session.getAttribute("machine");
 //    }
+
+//    ANALYSIS
+    @RequestMapping(value = "/analysis/create/", method = RequestMethod.POST)
+    public boolean createAnalysis(@RequestBody ScopeAnalysis json) {
+        scopeAnalysisDao.save(json);
+        return true;
+    }
+    @RequestMapping(value = "/analysis/list/all/", method = RequestMethod.GET)
+    public List<ScopeAnalysis> displayAllAnalysis() {
+        return (List<ScopeAnalysis>)scopeAnalysisDao.findAll();
+    }
+    @RequestMapping(value = "/analysis/get/{analysisId}/", method = RequestMethod.GET)
+    public ScopeAnalysis getAnalysis(@PathVariable long analysisId) {
+        return scopeAnalysisDao.findOne(analysisId);
+    }
+
 
 }

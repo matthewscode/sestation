@@ -11,13 +11,13 @@ html {
     font-family: 'Roboto', serif;
 }
 * {
-    -webkit-transition: all 0.2s ease;
-    -moz-transition:    all 0.2s ease;
-    -ms-transition:     all 0.2s ease;
-    -o-transition:      all 0.2s ease;
-    box-sizing: border-box;
-    border-radius: 0px;
-}
+     -webkit-transition: all 0.2s ease;
+     -moz-transition:    all 0.2s ease;
+     -ms-transition:     all 0.2s ease;
+     -o-transition:      all 0.2s ease;
+     box-sizing: border-box;
+     border-radius: 0px;
+ }
 body {
     background-color: #F1F1F1;
     margin: 0;

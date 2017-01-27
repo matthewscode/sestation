@@ -1,13 +1,10 @@
 
 <div class="content-container" data-ng-init="init()">
     <div class="result-main-box">
-            <a href="/analysis/{{ analysis.id }}" class="analysis-list-entry" ng-repeat="analysis in analysisList"  target="_blank">
+            <a href="https://mpanalysis.herokuapp.com/site-analysis/{{ analysis.id }}" class="analysis-list-entry" ng-repeat="analysis in analysisList"  target="_blank">
                 {{ analysis.clientName }}
             </a>
-
-            <div class="analysis-list-delete" ng-click="deleteAnalysis($index, analysis.id)">
-                delete
-            </div>
+        <br/>
 
         </div>
     </div>

@@ -63,10 +63,8 @@ public class ScopeController {
     public List<ScopeAnalysis> displayAllAnalysis() {
         return (List<ScopeAnalysis>)scopeAnalysisDao.findAll();
     }
-    @RequestMapping(value = "/analysis/get/{analysisId}/", method = RequestMethod.GET)
-    public ScopeAnalysis getAnalysis(@PathVariable long analysisId) {
-        return scopeAnalysisDao.findOne(analysisId);
-    }
+
+
 
 
 }

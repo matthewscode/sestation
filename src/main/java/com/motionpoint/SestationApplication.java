@@ -14,6 +14,4 @@ public class SestationApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SestationApplication.class, args);
 	}
-
-
 }

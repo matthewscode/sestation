@@ -126,7 +126,7 @@ sesApp.controller('mainCtrl', ['$scope', '$http', '$interval', '$location', func
     };
 
     $scope.init = function(){
-        $location.path(currentResultsPattern);
+        //$location.path(currentResultsPattern);
         $http.get(machineListPattern)
             .success(function(data) {
                 $scope.machineList = data;

@@ -130,7 +130,6 @@ sesApp.controller('mainCtrl', ['$scope', '$http', '$interval', '$location', func
         $http.get(machineListPattern)
             .success(function(data) {
                 $scope.machineList = data;
-                $scope.current.machine = $scope.machineList[0];
             });
         $http.get($scope.current.machine.location + '/api/scope/config/current/')
             .success(function(data) {

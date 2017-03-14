@@ -5,6 +5,7 @@ var startPattern = '/api/scope/start/';
 var stopPattern = '/api/scope/stop/';
 var updateCurrentConfigPattern = '/api/scope/current/update/';
 var pageListPattern = '/api/scope/page/list/';
+var pageListPattern = '/api/scope/dir/list/';
 var segmentListPattern = '/api/scope/segment/list/';
 var imageListPattern = '/api/scope/image/list/';
 
@@ -43,6 +44,10 @@ sesApp.config(function($routeProvider) {
         .when('/scope/page/list/', {
             templateUrl : 'pages/page-list.html',
             controller  : 'pageListCtrl'
+        })
+        .when('/scope/dir/list/', {
+            templateUrl : 'pages/dir-list.html',
+            controller  : 'dirListCtrl'
         })
         .when('/scope/segment/list/', {
             templateUrl : 'pages/segment-list.html',
@@ -190,6 +195,15 @@ sesApp.controller('pageListCtrl', ['$scope', '$http', function($scope, $http){
         $http.get($scope.current.machine.location + pageListPattern)
             .success(function(data) {
                 $scope.pageList = data;
+            })
+    }
+}]);
+sesApp.controller('dirListCtrl', ['$scope', '$http', function($scope, $http){
+    $scope.dirList = {};
+    $scope.init = function(){
+        $http.get($scope.current.machine.location + dirListPattern)
+            .success(function(data) {
+                $scope.dirList = data;
             })
     }
 }]);

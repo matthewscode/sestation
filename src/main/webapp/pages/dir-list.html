@@ -1,0 +1,16 @@
+<div class="content-container" data-ng-init="init()">
+
+    <div class="result-main-box">
+        <div class="page-list-entry-box" ng-repeat="dir in dirList">
+            <div class="page-list-entry-index">
+                {{ $index }}
+            </div>
+            <div class="page-list-entry-url">
+                {{ dir.directory }}
+            </div>
+            <div class="page-list-entry-words">
+                {{ dir.wordCount }}
+            </div>
+        </div>
+    </div>
+</div>

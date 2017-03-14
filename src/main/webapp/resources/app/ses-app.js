@@ -5,7 +5,7 @@ var startPattern = '/api/scope/start/';
 var stopPattern = '/api/scope/stop/';
 var updateCurrentConfigPattern = '/api/scope/current/update/';
 var pageListPattern = '/api/scope/page/list/';
-var pageListPattern = '/api/scope/dir/list/';
+var dirListPattern = '/api/scope/dir/list/';
 var segmentListPattern = '/api/scope/segment/list/';
 var imageListPattern = '/api/scope/image/list/';
 

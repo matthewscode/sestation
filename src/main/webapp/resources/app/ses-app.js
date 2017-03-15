@@ -198,15 +198,7 @@ sesApp.controller('pageListCtrl', ['$scope', '$http', function($scope, $http){
             })
     }
 }]);
-sesApp.controller('dirListCtrl', ['$scope', '$http', function($scope, $http){
-    $scope.dirList = {};
-    $scope.init = function(){
-        $http.get($scope.current.machine.location + dirListPattern)
-            .success(function(data) {
-                $scope.dirList = data;
-            })
-    }
-}]);
+
 sesApp.controller('segmentListCtrl', ['$scope', '$http', function($scope, $http){
     $scope.menu.option = 3;
     $scope.segmentList = {};
@@ -229,6 +221,16 @@ sesApp.controller('imageListCtrl', ['$scope', '$http', function($scope, $http){
     }
     $scope.imagePlus = function(){
         $scope.imageCount++;
+    }
+}]);
+sesApp.controller('dirListCtrl', ['$scope', '$http', function($scope, $http){
+    $scope.menu.option = 5;
+    $scope.dirList = {};
+    $scope.init = function(){
+        $http.get($scope.current.machine.location + dirListPattern)
+            .success(function(data) {
+                $scope.dirList = data;
+            })
     }
 }]);
 

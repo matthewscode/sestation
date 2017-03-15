@@ -82,7 +82,7 @@ sesApp.controller('mainCtrl', ['$scope', '$http', '$interval', '$location', func
     $scope.current = {};
     $scope.current.config = {};
     $scope.current.machine = {};
-    $scope.current.machine.name = 'Select';
+    $scope.current.machine.name = 'Valhalla';
     $scope.current.machine.location = 'https://mpscope.herokuapp.com';
     $scope.displayResults = true;
     $scope.showMachineList = false;

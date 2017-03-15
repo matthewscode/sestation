@@ -24,15 +24,9 @@
                         src="resources/img/{{mach.name}}.png" class="machine-icon"/><br/>{{ mach.name }}
                 </button>
             </div>
-            <div class="machine-entry">
-                <button class="machine-entry-button" ng-click="selectMachine(mach)">
-                    <img src="resources/img/Tengoku.png" class="machine-icon"/><br/>Tengoku
-                </button>
-            </div>
         </div>
         <div class="machine-box" ng-click="showMachineList = !showMachineList">
-            <img src="resources/img/{{current.machine.name}}.png" class="machine-icon"
-                 style="height: 40px; width: auto; margin: 5px 5px 0 0;" ng-show="current.machine.name"/>
+            <img src="resources/img/{{ current.machine.name}}.png" class="machine-icon" />
             {{ current.machine.name }}
         </div>
         <div class="nav-top-entry-container">
@@ -49,18 +43,22 @@
     </div>
     <div class="bottom-container">
         <div class="result-bar-container" ng-show="configLoaded" data-ng-init="init()">
+
+
+
             <div class="rb-config-box">
-                <div class="config-name">{{ current.config.name }}</div>
-                <div class="config-start" ng-show="currentResult.running" ng-click="stop()">
-                    <img src="resources/img/balls.svg" style="float: right; margin-right: 5px"/>
+                <div class="rb-start-box">
+                    <div class="config-start" ng-show="currentResult.running" ng-click="stop()">
+                        <img src="resources/img/balls.svg" style="float: right; margin-right: 5px"/>
+                    </div>
+                    <div class="config-start" ng-hide="currentResult.running" ng-click="start()">
+                        <i class="material-icons start-icon">play_arrow</i>
+                    </div>
                 </div>
-                <div class="config-start" ng-hide="currentResult.running" ng-click="start()">
-                    <i class="material-icons start-icon" style="color: #2ec866">play_arrow</i>
-                </div>
+                <div class="config-name">{{ current.config.name }}<br/><span class="rb-issue-box"># {{ current.config.issueNum }}</span></div>
+
             </div>
-            <div class="rb-issue-box">
-                Issue # {{ current.config.issueNum }}
-            </div>
+
             <div class="rb-result-box" ng-class="{'no-height': !displayResults}">
                 <div class="rb-result-entry-box">
                     <div class="rb-left-box">Total Words</div>
@@ -140,6 +138,7 @@
                 </div>
 
             </div>
+
             <a href="/#/analysis/create" class="result-bottom-box">
                 Create Analysis
             </a>

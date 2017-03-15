@@ -5,10 +5,8 @@
     <div class="result-main-box">
         <div class="sum-right">
             <div class="sum-ppm-box">
-                <canvas id="line" class="chart chart-line" chart-data="currentResult.ppmList"
-                        chart-labels="currentResult.ppmEntries" chart-series="series" chart-options="options"
-                        chart-dataset-override="datasetOverride" chart-click="onClick">
-                </canvas>
+                <span class="sum-ppm-num">0</span><br/>
+                ppm
             </div>
             <div class="sum-running-box">
                 <span ng-repeat="page in currentResult.currentPageList">{{ page.url }}<br/></span>
